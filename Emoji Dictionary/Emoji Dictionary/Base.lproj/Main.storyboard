@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aWC-UN-C1m">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWF-qh-AkL">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IWF-qh-AkL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="1VD-8T-aCk"/>
+                            <constraint firstAttribute="trailing" secondItem="IWF-qh-AkL" secondAttribute="trailing" id="ZcT-qk-fX0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IWF-qh-AkL" secondAttribute="bottom" id="nEK-65-DSX"/>
+                            <constraint firstItem="IWF-qh-AkL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yni-RS-pOH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ct2-73-XK6"/>
+                    <connections>
+                        <outlet property="TableView" destination="IWF-qh-AkL" id="M8M-eG-69u"/>
+                        <segue destination="Cv4-bn-deH" kind="show" identifier="MainToDetailSegue" id="jut-h7-V5Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="-174.06296851574214"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="g5n-1u-Jsx">
+            <objects>
+                <viewController id="Cv4-bn-deH" customClass="DetailViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VoG-3F-bxl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yvk-M3-w5Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tfu-df-84T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4p-2c-I6N">
+                                <fontDescription key="fontDescription" type="system" pointSize="142"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoI-28-b1u">
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZoI-28-b1u" firstAttribute="top" secondItem="i4p-2c-I6N" secondAttribute="bottom" constant="20" id="FgV-sP-Dt1"/>
+                            <constraint firstItem="i4p-2c-I6N" firstAttribute="top" secondItem="VoG-3F-bxl" secondAttribute="bottom" constant="100" id="aQQ-gw-XEk"/>
+                            <constraint firstItem="ZoI-28-b1u" firstAttribute="centerX" secondItem="tfu-df-84T" secondAttribute="centerX" id="hOI-V1-6H5"/>
+                            <constraint firstItem="i4p-2c-I6N" firstAttribute="centerX" secondItem="tfu-df-84T" secondAttribute="centerX" id="hzu-m7-TBZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="EmojiImg" destination="i4p-2c-I6N" id="1bx-gy-Ert"/>
+                        <outlet property="EmojiLabel" destination="ZoI-28-b1u" id="w1L-gW-fiG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BcU-hG-QsN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="-174.06296851574214"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vGA-1c-mPJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aWC-UN-C1m" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2c3-ca-vtZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5bE-xp-5WF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BK9-Ac-g5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="-174.06296851574214"/>
+        </scene>
+    </scenes>
+</document>
