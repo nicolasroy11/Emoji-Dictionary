@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    var Emoji = "";
+    var newEmoji = Emoji();
     var Label = "";
     
     @IBOutlet weak var EmojiImg: UILabel!
@@ -19,8 +19,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        EmojiImg.text = Emoji;
-        print(Emoji);
+        EmojiImg.text = newEmoji.EmojiIcon;
+        EmojiLabel.text = newEmoji.Definition;
     }
 
     override func didReceiveMemoryWarning() {

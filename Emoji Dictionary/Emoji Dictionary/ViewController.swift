@@ -12,12 +12,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var TableView: UITableView!
     
-    var randArray: [Any] = ["😁","😜","😡","😳"];
+    var randArray: [String] = ["😁","😜","😡","😳"];
+    var Emojis: [Emoji] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
         TableView.dataSource = self;
         TableView.delegate = self;
+        Emojis = MakeEmojiArray();
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,23 +29,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let i: Int = indexPath.row;
         let cell: UITableViewCell = UITableViewCell();
-        cell.textLabel?.text = "\(randArray[i])";
+        cell.textLabel?.text = "\(Emojis[i].EmojiIcon)";
         return cell;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let i: Int = indexPath.row;
-        let u: Any = {};
-        performSegue(withIdentifier: "MainToDetailSegue", sender: "\(randArray[i])");
+        performSegue(withIdentifier: "MainToDetailSegue", sender: Emojis[i]);
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let next = segue.destination as! DetailViewController;
-        next.Emoji = sender as! String;
-        next.Label =
+        next.newEmoji = sender as! Emoji;
     }
     
-    
+    func MakeEmojiArray() -> [Emoji] {
+        var array: [Emoji] = [];
+        for i in randArray {
+            let emoji = Emoji();
+            emoji.EmojiIcon = i;
+            emoji.Definition = "This is \(i)";
+            array.append(emoji);
+        }
+        return array;
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
