@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var randArray: [String] = ["😁","😜","😡","😳"];
     var Emojis: [Emoji] = [];
     
+    // View initalization
     override func viewDidLoad() {
         super.viewDidLoad()
         TableView.dataSource = self;
@@ -22,10 +23,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         Emojis = MakeEmojiArray();
     }
     
+    // Give the table the number of rows it needs to render
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return randArray.count;
     }
     
+    // Setting up each row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let i: Int = indexPath.row;
         let cell: UITableViewCell = UITableViewCell();
@@ -33,14 +36,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell;
     }
     
+    // OnRowSelect
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let i: Int = indexPath.row;
         performSegue(withIdentifier: "MainToDetailSegue", sender: Emojis[i]);
     }
     
+    // Method handling the passing of data from one view to the next
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let next = segue.destination as! DetailViewController;
-        next.newEmoji = sender as! Emoji;
+        let next = segue.destination as! DetailViewController;  // get the view controller we are transferring to
+        next.newEmoji = sender as! Emoji;   // Set the destination variable to what we're passing in
     }
     
     func MakeEmojiArray() -> [Emoji] {
